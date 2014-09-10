@@ -15,3 +15,7 @@ puts "Anna Schechter"
 puts "Denise Yu"
 puts "Alex Fakhri"
 puts "Bernard Mordan"
+
+print "Overall, we have "
+print 15
+print " great students."
