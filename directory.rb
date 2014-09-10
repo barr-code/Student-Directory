@@ -1,3 +1,5 @@
+student_count = 15
+
 puts "The students of my cohort at Makers Academy"
 puts "------------------------"
 puts "Victoria Barr"
@@ -16,6 +18,4 @@ puts "Denise Yu"
 puts "Alex Fakhri"
 puts "Bernard Mordan"
 
-print "Overall, we have "
-print 15
-print " great students."
+puts "Overall, we have #{student_count} great students."
