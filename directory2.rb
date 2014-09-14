@@ -6,7 +6,12 @@ def print_header
 end
 
 def print_students_list
-	@students.each.with_index(1) {|student, n| puts "#{n}: #{student[:name]} (#{student[:cohort]} cohort)".center(50)}
+	@students.each.with_index(1) do
+		|student, n| 
+		if student[:name][0] == "A" && student[:name].length <= 12
+			puts "#{n}: #{student[:name]} (#{student[:cohort]} cohort)".center(50)
+		end
+	end
 end
 
 def print_footer
