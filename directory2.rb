@@ -33,9 +33,15 @@ def input_students
 		hobby = STDIN.gets.chomp
 		
 		add_student(name, cohort, age, hobby)
-		puts "Now we have #{@students.length} students!".center(50)
-		
+		if @students.length == 1
+			puts "Now we have #{@students.length} student!".center(50)
+		elsif @students.length > 12
+			puts "Now we have #{@students.length} students!".center(50)
+		else
+			puts "There are no students in this directory."
+		end
 		puts "Enter another student."
+		
 		name = STDIN.gets.chomp
 	end
 end

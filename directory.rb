@@ -18,17 +18,23 @@ def input_students
 	puts "To finish, just hit return twice.".center(50)
 		name = STDIN.gets.chomp
 	while !name.empty? do
-		puts "Enter the student's cohort."
+		puts "Enter the student's cohort.".center(50)
 		cohort = STDIN.gets.chomp
 		
-		puts "How old is the student?"
+		puts "How old is the student?".center(50)
 		age = STDIN.gets.chomp
 		
-		puts "What is the student's hobby?"
+		puts "What is the student's hobby?".center(50)
 		hobby = STDIN.gets.chomp
 		
 		add_student(name, cohort, age, hobby)
-		puts "Now we have #{@students.length} students!".center(50)
+		if @students.length == 1
+			puts "Now we have #{@students.length} student!".center(50)
+		elsif @students.length > 1
+			puts "Now we have #{@students.length} students!".center(50)
+		else
+			puts "There are no students in this directory.".center(50)
+		end
 		
 		puts "Enter another student."
 		name = STDIN.gets.chomp
