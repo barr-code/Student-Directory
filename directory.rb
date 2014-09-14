@@ -1,26 +1,35 @@
 @students = []
 
 def print_header
-	puts "The students of my cohort at Makers Academy"
-	puts "--------------------"
+	puts "The students of my cohort at Makers Academy".center(50)
+	puts "--------------------".center(50)
 end
 
 def print_students_list
-	@students.each.with_index(1) {|student, n| puts "#{n}: #{student[:name]} (#{student[:cohort]} cohort)"}
+	@students.each.with_index(1) {|student, n| puts "#{n}: #{student[:name]} (#{student[:cohort]} cohort)".center(50)}
 end
 
 def print_footer
-	puts "Overall, we have #{@students.length} great students."
+	puts "Overall, we have #{@students.length} great students.".center(50)
 end
 
 def input_students
-	puts "Please enter the names of the students."
-	puts "To finish, just hit return twice."
-	
+	puts "Please enter the names of the student.".center(50)
+	puts "To finish, just hit return twice.".center(50)
 		name = STDIN.gets.chomp
 	while !name.empty? do
-		add_student(name, :november)
-		puts "Now we have #{@students.length} students!"
+		puts "Enter the student's cohort."
+		cohort = STDIN.gets.chomp
+		
+		puts "How old is the student?"
+		age = STDIN.gets.chomp
+		
+		puts "What is the student's hobby?"
+		hobby = STDIN.gets.chomp
+		
+		add_student(name, cohort, age, hobby)
+		puts "Now we have #{@students.length} students!".center(50)
+		
 		name = STDIN.gets.chomp
 	end
 end
@@ -35,8 +44,8 @@ def save_students
 	file.close
 end
 
-def add_student(name, cohort)
-	@students << {:name => name, :cohort => cohort.to_sym}
+def add_student(name, cohort = :september, age, hobby)
+	@students << {:name => name, :cohort => cohort.to_sym, :age => age, :hobby => hobby}
 end
 
 def load_students(filename = "students.csv")
@@ -53,19 +62,19 @@ def try_load_students
 	return if filename.nil?
 	if File.exists?(filename)
 		load_students(filename)
-			puts "Loaded #{@students.length} from #{filename}."
+			puts "Loaded #{@students.length} from #{filename}.".center(50)
 	else
-		puts "Sorry, #{filename} doesn't exist."
+		puts "Sorry, #{filename} doesn't exist.".center(50)
 		exit
 	end
 end
 
 def print_menu
-	puts "1. Input the students"
-	puts "2. Show the students"
-	puts "3. Save the list to students.csv"
-	puts "4. Load the list from students.csv"
-	puts "9. Exit"
+	puts "1. Input the students".center(50)
+	puts "2. Show the students".center(50)
+	puts "3. Save the list to students.csv".center(50)
+	puts "4. Load the list from students.csv".center(50)
+	puts "9. Exit".center(50)
 end
 
 def show_students
@@ -87,7 +96,7 @@ def process(selection)
 		when "9"
 			exit
 		else
-			puts "I don't know what you meant, try again."
+			puts "I don't know what you meant, try again.".center(50)
 	end
 end
 
